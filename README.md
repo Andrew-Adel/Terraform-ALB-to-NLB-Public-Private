@@ -57,3 +57,22 @@ This project implements a public-private architecture on AWS using Terraform. It
     * Hosts application servers (HTTPd)
 5. Security Groups
     * Manage inbound and outbound traffic rules for ALB, NLB, and EC2 instances
+  
+## Requirements
+
+1. Terraform v1.x
+2. AWS CLI configured with the necessary credentials
+3. A valid SSH key pair for accessing EC2 instances
+
+## Usage
+1. Clone the repository:
+2. Initialize Terraform:
+3. Review and edit the variables in `terraform.tfvars` to customize the infrastructure for your environment.
+4. Apply the Terraform configuration:
+5. Once complete, retrieve the Load Balancer DNS by running:
+
+
+# Author
+Created by Andrew Adel
+Find me on GitHub.
+[![Find me on GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/Andrew-Adel)
