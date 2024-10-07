@@ -74,5 +74,6 @@ This project implements a public-private architecture on AWS using Terraform. It
 
 # Author
 Created by Andrew Adel
+
 Find me on GitHub.
 [![Find me on GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/Andrew-Adel)
