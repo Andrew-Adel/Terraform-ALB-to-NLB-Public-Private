@@ -1,6 +1,8 @@
 # Terraform-ALB-to-NLB-Public-Private-Arch
 This project implements a public-private architecture on AWS using Terraform. It uses an Application Load Balancer (ALB) for public-facing traffic, which redirects requests to a public EC2S which redirect requests to a Network Load Balancer (NLB) for private resources, such as EC2 instances hosted in a Virtual Private Cloud (VPC). The infrastructure is designed to be highly available and scalable.
 
+## Project Structure
+
 ```plaintext
 .
 ├── .gitignore                   # Git ignore file to exclude unnecessary files from version control
@@ -34,3 +36,24 @@ This project implements a public-private architecture on AWS using Terraform. It
     ├── main.tf                  # s3_bucket instance definitions
     └── variables.tf             # Variables specific to load balancer instances (e.g., load balancer type)
 ```
+## Modules
+1. EC2 Module (EC2_module/) : This module is responsible for creating EC2 instances. The main.tf file in this folder defines the EC2 instances' configuration, including their size, AMI ID, and security groups. Outputs like instance IDs are captured in outputs.tf.
+
+2. VPC Module (VPC_module/) : This module handles VPC creation, including subnets, route tables, and the internet gateway. This modular approach enables better reuse across different projects. The main.tf defines the network resources, and the outputs.tf captures relevant information like VPC ID and subnet IDs.
+
+3. Load Balancer Module (loadbalancer/) : This module defines both the ALB (public-facing) and NLB (private-facing) load balancers. It sets up listeners, target groups, and integrates with EC2 instances.
+
+## Resources Created
+1. VPC
+    * Public and private subnets
+    * Route tables and internet gateway
+2. Application Load Balancer (ALB)
+    * Handles incoming public traffic
+    * Listeners and target groups to route requests to private EC2 instances via NLB
+3. Network Load Balancer (NLB)
+    * Balances traffic between internal EC2 instances
+4. EC2 Instances
+    * Hosts application servers (NGINX)
+    * Hosts application servers (HTTPd)
+5. Security Groups
+    * Manage inbound and outbound traffic rules for ALB, NLB, and EC2 instances
