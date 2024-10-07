@@ -1,4 +1,4 @@
-# Terraform-ALB-to-NLB-Public-Private-Arch
+# Terraform-ALB-to-NLB-Public-Private
 This project implements a public-private architecture on AWS using Terraform. It uses an Application Load Balancer (ALB) for public-facing traffic, which redirects requests to a public EC2S which redirect requests to a Network Load Balancer (NLB) for private resources, such as EC2 instances hosted in a Virtual Private Cloud (VPC). The infrastructure is designed to be highly available and scalable.
 
 ## Project Structure
@@ -66,11 +66,30 @@ This project implements a public-private architecture on AWS using Terraform. It
 
 ## Usage
 1. Clone the repository:
-2. Initialize Terraform:
-3. Review and edit the variables in `terraform.tfvars` to customize the infrastructure for your environment.
-4. Apply the Terraform configuration:
-5. Once complete, retrieve the Load Balancer DNS by running:
+```
+git clone https://github.com/Andrew-Adel/Terraform-ALB-to-NLB-Public-Private.git
+cd Terraform-ALB-to-NLB-Public-Private
 
+```
+2. Initialize Terraform:
+
+```
+terraform init
+
+```
+3. Review and edit the variables in `terraform.tfvars` to customize the infrastructure for your environment.
+4. check and plan
+```
+terraform plan
+```
+5. Apply the Terraform configuration:
+```
+terraform apply
+```
+6. Once complete, retrieve the Load Balancer DNS by running:
+```
+terraform output load_balancer_dns
+```
 
 # Author
 Created by Andrew Adel
