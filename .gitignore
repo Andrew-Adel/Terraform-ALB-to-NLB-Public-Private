@@ -1,0 +1,11 @@
+# ignore files of terrafrom 
+.terraform/
+
+.terraform.lock.hcl
+
+# ignore configuration of aws
+aws-config/
+
+projects/
+
+backend.tf
